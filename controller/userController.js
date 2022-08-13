@@ -7,7 +7,6 @@ class UserController {
   //REGISTER USER
   static userRegistration = async (req, res) => {
     const { name, email, password, password_confermation, tc } = req.body;
-
     let user = await userModel.findOne({ email: email });
     if (user) {
       return res.json({ error: "email already exits" });
@@ -146,7 +145,6 @@ class UserController {
       return res.json({ error: error.message });
     }
   };
-
   //RESET PASSWORD THROUGH LINK
   static userPasswordReset = async (req, res) => {
     try {
